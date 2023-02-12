@@ -13,16 +13,28 @@ const images = [
   },
 ];
 
-const newUl = document.querySelector(".gallery");
-newUl.style.display = "flex";
+// const newUl = document.querySelector(".gallery");
+// newUl.style.display = "flex";
 
-const allImages = images.map(image => {
-  const newLi = `<li>
-    <img src = ${image.url} alt = ${image.alt} width=630 height=375>
-  </li>`;
-  return newLi
-})
+// const allImages = images.map(image => {
+//   const newLi = `<li>
+//     <img src = ${image.url} alt = ${image.alt} width=630 height=375>
+//   </li>`;
+//   return newLi
+// })
 
-newUl.insertAdjacentHTML("afterbegin", allImages.join(''));
+// newUl.insertAdjacentHTML("afterbegin", allImages.join(''));
 
-console.log(allImages);
+// console.log(allImages);
+
+
+const imagesRef = document.querySelector('.gallery');
+
+const itemsEl = images.map((imag) => 
+  `<li class="list-item"><img src =${imag.url} alt = ${imag.alt} width=630 height=375></li>`
+)
+imagesRef.style.display = "flex"
+
+imagesRef.insertAdjacentHTML("beforeend", itemsEl.join(""));
+
+console.log(itemsEl)
