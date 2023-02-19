@@ -1,27 +1,21 @@
-// const form = document.querySelector('.login-form');
+// 
+const loginFormRef = document.querySelector('.login-form');
+loginFormRef.addEventListener('submit', loginVerification);
 
-// form.addEventListener('submit', onFormSabmit);
+function loginVerification(event) {
+    event.preventDefault();
+    
+    const {
+        elements: { email, password }
+    } = event.currentTarget;
+    
+    if (email.value === '' || password.value === '') {
+        return alert('Please fill in all the fields!')
+    }
 
-// function onFormSabmit(event){
-// event.preventDefault();
+    console.log(`email:${email.value}, 
+    password:${password.value}`);
+    event.currentTarget.reset();
 
 
-// const formElements = event.currentTarget.elements;
-
-// console.dir(formElements)
-
-
-// const email = formElements.email.value;
-// const password = formElements.password.value;
-
-// const formData = {
-//     email,
-//     password,
-// }
-// console.log(formData);
-
-// formData.email !== "" && formData.password !== ""
-//    ? form.reset()
-//    : alert (`всі поля повинні бути заповнені`)
-
-// }
+}
