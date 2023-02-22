@@ -2,30 +2,35 @@ const inputRef = document.querySelector('input');
 const btnCreateRef = document.querySelector('button[data-create]');
 const btnDestroyRef = document.querySelector('button[data-destroy]');
 const idBoxesRef = document.querySelector('#boxes');
+const smallBox = document.querySelector('.small-box');
+
+
 
 
 const createBoxes = amount => {
-    const targetInput = amount .currentTarget.value;
+  let value = Number(amount.currentTarget.value);
+    console.log(typeof value)
+    for (let index = 1; index <= value; index += 1) {
+    
+    const box = document.createElement('div');
+        box.style.width = '30px';
+        box.style.height = '30px';
+        box.style.backgroundColor = getRandomHexColor();
+    
+    idBoxesRef.style.display = "flex";
+    idBoxesRef.style.justifyContent = "space-around";
 
-  for (let index = 0; index < targetInput; index += 1) {
-    idBoxesRef.insertAdjacentElement("beforeend", box)
-;
+    idBoxesRef.insertAdjacentElement("beforeend", box);
+    }
   }
+
   
-}
-
-const box = document.createElement('div');
-    box.setAttribute('id', 'boxes');
-    // box.style.width = "30px"; 
-    // box.style.hight = "30px";
-    // box.style.backgroundColor = getRandomHexColor();
-
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-inputRef.addEventListener('input', createBoxes)
+// btnCreateRef.addEventListener('click', createBoxes)
 
+  inputRef.addEventListener('click', createBoxes)
 
-// console.log(box)
