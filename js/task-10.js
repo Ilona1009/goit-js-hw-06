@@ -7,30 +7,39 @@ const smallBox = document.querySelector('.small-box');
 
 
 
+    let www = 30 + 'px';
+    let hhh = 30 + 'px';
+
 const createBoxes = amount => {
   inputRef.value === amount.currentTarget.value;
-    console.log(typeof inputRef.value )
-    for (let index = 1; index <= inputRef.value ; index += 1) {
-    
-    const box = document.createElement('div');
-        box.style.width = '30px';
-        box.style.height = '30px';
-        box.style.backgroundColor = getRandomHexColor();
+  console.log()
+  for (let index = 1; index <= inputRef.value; index += 1) {
+
+    let box = document.createElement('div');
+
+    box.style.width = www;
+    box.style.height = hhh;
+    box.style.backgroundColor = getRandomHexColor();
     
     idBoxesRef.style.display = "flex";
     idBoxesRef.style.justifyContent = "space-around";
 
     idBoxesRef.insertAdjacentElement("beforeend", box);
-    }
   }
+}
 
-  
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-btnCreateRef.addEventListener('click', createBoxes)
 
-  // inputRef.addEventListener('click', createBoxes)
+function destoryBox() {
+  idBoxesRef.innerHTML = '';
+}
+
+
+
+btnCreateRef.addEventListener('click', createBoxes)
+btnDestroyRef.addEventListener('click', destoryBox)
 
