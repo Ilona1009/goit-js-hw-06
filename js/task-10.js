@@ -12,20 +12,26 @@ const smallBox = document.querySelector('.small-box');
 
 const createBoxes = amount => {
   inputRef.value === amount.currentTarget.value;
-  console.log()
   for (let index = 1; index <= inputRef.value; index += 1) {
 
     let box = document.createElement('div');
 
+    box.classList.add('small-box');
     box.style.width = www;
     box.style.height = hhh;
     box.style.backgroundColor = getRandomHexColor();
-    
+
     idBoxesRef.style.display = "flex";
     idBoxesRef.style.justifyContent = "space-around";
 
     idBoxesRef.insertAdjacentElement("beforeend", box);
   }
+
+      function f() {
+      return Array.from(arguments)
+    }
+
+console.log(f(amount))
 }
 
 
@@ -42,4 +48,5 @@ function destoryBox() {
 
 btnCreateRef.addEventListener('click', createBoxes)
 btnDestroyRef.addEventListener('click', destoryBox)
+
 
