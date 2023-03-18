@@ -7,7 +7,7 @@ const smallBox = document.querySelector('.small-box');
 
 const createBoxes = amount => {
   inputRef.value === amount.currentTarget.value;
-  for (let index = 1; index <= inputRef.value; index += 1) {
+  for (let index = 0; index < inputRef.value; index += 1) {
 
     let box = document.createElement('div');
 
