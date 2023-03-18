@@ -5,11 +5,6 @@ const idBoxesRef = document.querySelector('#boxes');
 const smallBox = document.querySelector('.small-box');
 
 
-
-
-    let www = 30 + 'px';
-    let hhh = 30 + 'px';
-
 const createBoxes = amount => {
   inputRef.value === amount.currentTarget.value;
   for (let index = 1; index <= inputRef.value; index += 1) {
@@ -17,8 +12,8 @@ const createBoxes = amount => {
     let box = document.createElement('div');
 
     box.classList.add('small-box');
-    box.style.width = www;
-    box.style.height = hhh;
+    box.style.width = String(30 + 10 * index) + 'px';
+    box.style.height = String(30 + 10 * index) + 'px';
     box.style.backgroundColor = getRandomHexColor();
 
     idBoxesRef.style.display = "flex";
@@ -27,11 +22,6 @@ const createBoxes = amount => {
     idBoxesRef.insertAdjacentElement("beforeend", box);
   }
 
-      function f() {
-      return Array.from(arguments)
-    }
-
-console.log(f(amount))
 }
 
 
@@ -42,6 +32,7 @@ function getRandomHexColor() {
 
 function destoryBox() {
   idBoxesRef.innerHTML = '';
+  inputRef.value = '';
 }
 
 
